@@ -1,0 +1,26 @@
+{
+  "name": "barraca",
+  "version": "1.0.0",
+  "description": "Gestão de restaurante/barzinho - mesas, pedidos, estoque, fornecedores e cupom",
+  "private": true,
+  "workspaces": [
+    "client"
+  ],
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "dev": "concurrently -k -n server,cliente -c blue,green \"node server/index.js\" \"npm run dev --workspace client\"",
+    "dev:client": "npm run dev --workspace client",
+    "dev:server": "node server/index.js",
+    "build": "npm run build --workspace client",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
