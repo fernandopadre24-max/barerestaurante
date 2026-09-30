@@ -157,6 +157,10 @@ function revertCompra(compraId) {
 
 // ---------------- AUTH ----------------
 
+router.get('/health', (req, res) => {
+  res.json({ ok: true, agora: new Date().toISOString() });
+});
+
 router.post('/log', (req, res) => {
   const l = req.body || {};
   console.log(new Date().toISOString() + '  [APP] ' + (l.tipo || 'log') + ' | ' + JSON.stringify(l.msg || ''));

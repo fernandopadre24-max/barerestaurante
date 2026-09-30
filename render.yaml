@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: barraca
+    runtime: node
+    repo: https://github.com/fernandopadre24-max/barerestaurante
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: NODE_VERSION
+        value: 22
+    healthCheckPath: /api/health
+    disk:
+      name: sqlite-data
+      mountPath: /var/data
+      sizeGB: 1
